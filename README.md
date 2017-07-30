@@ -1,37 +1,49 @@
-## Welcome to GitHub Pages
+## Jiq (means "Scream" in Farsi) 😱
 
-You can use the [editor on GitHub](https://github.com/Taskulu/Jiq/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[swift 3]
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+There was a need in error handling with more details and more flexibility in Swift. I wrote my own Error wrapper so I could add more details to the errors.
 
-### Markdown
+This wrapper just makes my life easier! Hope does the same for you. 😬
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### Usage
+Initialize a Jiq object like this:
+```swift
+let error = Jiq(code: 0, codeName:"WhatEverCodeNameYouWant", type: .unknown, message:"Something bad happened.")
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Or like this:
+```swift
+let error = Jiq()
+```
+You can assign multiple details to the errors.
 
-### Jekyll Themes
+```swift
+error.type = .badResponse
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Taskulu/Jiq/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Here are some Jiq types:
+```markdown
+  none
+  badRequest
+  badParameters
+  badResponse
+  notFound
+  unknown
+```
 
-### Support or Contact
+You can assing messages to the error like this:
+```swift
+error.message = "Something bad happened."
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+You can append the real Error object to it:
+```swift
+error.error = Error()
+```
+
+
+### Installation
+Simply drop the Jiq.swift file in your project or import this project to your workspace.
+
+### Please fork and contribute
